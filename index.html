@@ -1,99 +1,467 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Alden Sofa | Product Page</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alden Sofa | XXX Furniture</title>
+
   <style>
+    :root{
+      --bg:#ffffff;
+      --text:#111827;
+      --muted:#6b7280;
+      --line:#e5e7eb;
+      --soft:#f9fafb;
+      --card:#ffffff;
+      --btn:#111827;
+      --btnText:#ffffff;
+      --radius:14px;
+      --shadow: 0 12px 30px rgba(17, 24, 39, 0.08);
+      --max: 1180px;
+    }
+
+    *{ box-sizing:border-box; }
     body{
       margin:0;
-      font-family: Arial, Helvetica, sans-serif;
-      background:#ffffff;
-      color:#111;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--text);
+      background:var(--bg);
     }
-    .container{
-      max-width:1100px;
-      margin:40px auto;
-      padding:0 20px;
+    a{ color:inherit; text-decoration:none; }
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:18px 18px 50px;
     }
-    .product{
+
+    /* Header */
+    header{
+      position:sticky;
+      top:0;
+      background:rgba(255,255,255,0.92);
+      border-bottom:1px solid var(--line);
+      backdrop-filter:saturate(140%) blur(10px);
+      z-index:10;
+    }
+    .nav{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:14px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:750;
+      letter-spacing:0.2px;
+    }
+    .logo{
+      width:30px;
+      height:30px;
+      border-radius:10px;
+      background:var(--text);
+    }
+    .navlinks{
+      display:flex;
+      gap:16px;
+      font-size:14px;
+      color:var(--muted);
+      white-space:nowrap;
+    }
+    .navlinks a:hover{ color:var(--text); }
+
+    /* Layout */
+    .breadcrumbs{
+      margin:14px 0 18px;
+      font-size:13px;
+      color:var(--muted);
+    }
+    .grid{
       display:grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap:30px;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap:22px;
+      align-items:start;
     }
-    img{
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+    .pad{ padding:18px; }
+
+    /* Gallery */
+    .gallery .hero{
       width:100%;
       display:block;
-      border-radius:6px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:var(--soft);
+      aspect-ratio: 16/10;
+      object-fit:cover;
     }
     .thumbs{
+      margin-top:12px;
       display:grid;
       grid-template-columns: repeat(4, 1fr);
       gap:10px;
-      margin-top:12px;
     }
-    .thumbs img{
+    .thumb{
+      border:1px solid var(--line);
+      border-radius:12px;
+      overflow:hidden;
+      background:var(--soft);
       cursor:pointer;
+      height:82px;
+      padding:0;
     }
+    .thumb img{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:cover;
+    }
+    .thumb:focus{
+      outline:3px solid rgba(17,24,39,0.12);
+      outline-offset:2px;
+    }
+
+    /* Product info */
     h1{
-      font-size:24px;
       margin:0 0 8px;
-      font-weight:600;
+      font-size:26px;
+      line-height:1.2;
+      font-weight:800;
+    }
+    .meta{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin:10px 0 12px;
+      flex-wrap:wrap;
     }
     .price{
-      font-size:20px;
-      margin:10px 0;
-      font-weight:500;
+      font-size:22px;
+      font-weight:800;
+    }
+    .rating{
+      font-size:13px;
+      color:var(--muted);
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    .stars{
+      letter-spacing:1px;
+      color:#111827;
+      font-size:13px;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-size:12px;
+      color:var(--muted);
+      background:var(--soft);
+      border:1px solid var(--line);
+      padding:8px 10px;
+      border-radius:999px;
+      white-space:nowrap;
     }
     .desc{
+      margin:12px 0 14px;
+      color:#374151;
       font-size:14px;
-      line-height:1.6;
+      line-height:1.65;
+    }
+    .divider{
+      height:1px;
+      background:var(--line);
       margin:16px 0;
-      color:#333;
     }
-    .specs{
-      font-size:14px;
-      line-height:1.6;
-      margin-top:14px;
-      padding-left:18px;
+    .sectionTitle{
+      font-size:12px;
+      color:var(--muted);
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:0.4px;
+      margin:0 0 10px;
     }
-    .specs li{
-      margin-bottom:6px;
-    }
-    .button{
-      margin-top:20px;
-      padding:12px;
+
+    .details{
       width:100%;
-      background:#111;
-      color:#fff;
-      border:none;
+      border-collapse:collapse;
       font-size:14px;
-      cursor:pointer;
     }
-    @media(max-width:900px){
-      .product{
-        grid-template-columns:1fr;
-      }
+    .details td{
+      padding:10px 0;
+      border-top:1px solid var(--line);
+      vertical-align:top;
+    }
+    .details td:first-child{
+      color:var(--muted);
+      width:38%;
+      padding-right:10px;
+    }
+
+    .ctaRow{
+      display:flex;
+      gap:10px;
+      margin-top:16px;
+    }
+    .btn{
+      width:100%;
+      padding:12px 14px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      font-weight:800;
+      cursor:pointer;
+      font-size:14px;
+    }
+    .btnPrimary{
+      background:var(--btn);
+      color:var(--btnText);
+      border-color:var(--btn);
+    }
+    .btnSecondary{
+      background:#ffffff;
+      color:var(--text);
+    }
+
+    /* Below sections */
+    .below{
+      margin-top:22px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:22px;
+    }
+    .story p{
+      margin:0;
+      color:#374151;
+      font-size:14px;
+      line-height:1.65;
+    }
+
+    .similarGrid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+    }
+    .prodCard{
+      border:1px solid var(--line);
+      border-radius:14px;
+      overflow:hidden;
+      background:#fff;
+    }
+    .prodImg{
+      width:100%;
+      height:120px;
+      object-fit:cover;
+      display:block;
+      background:var(--soft);
+      border-bottom:1px solid var(--line);
+    }
+    .prodBody{
+      padding:10px 10px 12px;
+    }
+    .prodName{
+      font-weight:800;
+      font-size:13px;
+      margin:0 0 6px;
+    }
+    .prodMeta{
+      margin:0;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.35;
+    }
+
+    footer{
+      margin-top:34px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    @media (max-width: 980px){
+      .grid{ grid-template-columns: 1fr; }
+      .below{ grid-template-columns: 1fr; }
+      .similarGrid{ grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 520px){
+      .thumbs{ grid-template-columns: repeat(2, 1fr); }
+      .thumb{ height:90px; }
+      .similarGrid{ grid-template-columns: 1fr; }
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <div class="product">
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <span class="logo" aria-hidden="true"></span>
+        <span>XXX Furniture</span>
+      </div>
+      <nav class="navlinks" aria-label="Primary navigation">
+        <a href="#">Living Room</a>
+        <a href="#">Sofas</a>
+        <a href="#">Shipping</a>
+        <a href="#">Support</a>
+      </nav>
+    </div>
+  </header>
 
-      <div>
-        <!-- Main image now uses the product photo -->
-        <img id="mainImage" src="main.png" alt="Sofa product image">
+  <main class="wrap">
+    <div class="breadcrumbs">Home / Living Room / Sofas / Alden Sofa</div>
 
-        <!-- Thumbnails reordered: product first, environment last -->
-        <div class="thumbs">
-          <img src="main.png" onclick="changeImg(this.src)" alt="Front view">
-          <img src="side.jpg" onclick="changeImg(this.src)" alt="Side view">
-          <img src="fabric.png" onclick="changeImg(this.src)" alt="Fabric detail">
-          <img src="environment.jpg" onclick="changeImg(this.src)" alt="In-room view">
+    <section class="grid" aria-label="Product content">
+      <!-- Gallery -->
+      <div class="card pad gallery">
+        <!-- Main product photo FIRST -->
+        <img id="mainImage" class="hero" src="main.png" alt="Alden Sofa product photo" />
+
+        <div class="thumbs" aria-label="Product image thumbnails">
+          <button class="thumb" type="button" data-src="main.png" aria-label="View main product photo">
+            <img src="main.png" alt="" />
+          </button>
+          <button class="thumb" type="button" data-src="side.jpg" aria-label="View side photo">
+            <img src="side.jpg" alt="" />
+          </button>
+          <button class="thumb" type="button" data-src="fabric.png" aria-label="View fabric detail">
+            <img src="fabric.png" alt="" />
+          </button>
+          <!-- Environment photo LAST -->
+          <button class="thumb" type="button" data-src="environment.jpg" aria-label="View in-room photo">
+            <img src="environment.jpg" alt="" />
+          </button>
         </div>
       </div>
 
-      <div>
-        <h1>Alden Sofa</
+      <!-- Info -->
+      <aside class="card pad" aria-label="Product information">
+        <h1>Alden Sofa</h1>
+
+        <div class="meta">
+          <div class="price">$1,299</div>
+          <div class="rating">
+            <span class="stars">★★★★★</span>
+            <span>4.7 (128 reviews)</span>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <span class="pill">In stock</span>
+          <span class="pill">Estimated delivery: 1 to 3 weeks</span>
+          <span class="pill">Free returns within 30 days</span>
+        </div>
+
+        <p class="desc">
+          Designed with clean lines and a timeless silhouette, the Alden Sofa balances comfort and durability
+          for everyday living. Upholstered in a soft yet resilient woven fabric, it features supportive seat
+          cushions, gently sloped arms, and a sturdy frame built for long term use. Its versatile profile fits
+          naturally in a wide range of living spaces and interior styles.
+        </p>
+
+        <div class="divider"></div>
+
+        <div class="sectionTitle">Product Details</div>
+        <table class="details" aria-label="Product details table">
+          <tr>
+            <td>Overall dimensions</td>
+            <td>84&quot; W × 38&quot; D × 33&quot; H</td>
+          </tr>
+          <tr>
+            <td>Seat dimensions</td>
+            <td>18&quot; seat height, 22&quot; seat depth</td>
+          </tr>
+          <tr>
+            <td>Upholstery</td>
+            <td>Woven performance fabric</td>
+          </tr>
+          <tr>
+            <td>Frame</td>
+            <td>Solid and engineered wood</td>
+          </tr>
+          <tr>
+            <td>Cushions</td>
+            <td>Foam core with fiber wrap</td>
+          </tr>
+          <tr>
+            <td>Legs</td>
+            <td>Metal, matte finish</td>
+          </tr>
+        </table>
+
+        <div class="ctaRow" aria-label="Purchase buttons">
+          <button class="btn btnPrimary" type="button">Add to Cart</button>
+          <button class="btn btnSecondary" type="button">Save</button>
+        </div>
+      </aside>
+    </section>
+
+    <section class="below" aria-label="Additional sections">
+      <div class="card pad story">
+        <div class="sectionTitle">Our Story</div>
+        <p>
+          XXX Furniture designs modern essentials with an emphasis on clean lines, reliable materials, and
+          everyday usability. Our pieces are built for real homes and real routines, with thoughtful details
+          that prioritize comfort, durability, and a timeless look.
+        </p>
+      </div>
+
+      <div class="card pad">
+        <div class="sectionTitle">See Similar Products</div>
+        <div class="similarGrid" aria-label="Similar products">
+          <div class="prodCard">
+            <img class="prodImg" src="main.png" alt="Similar sofa 1" />
+            <div class="prodBody">
+              <p class="prodName">Bennett Sofa</p>
+              <p class="prodMeta">$1,149 · 82&quot; width</p>
+            </div>
+          </div>
+
+          <div class="prodCard">
+            <img class="prodImg" src="side.jpg" alt="Similar sofa 2" />
+            <div class="prodBody">
+              <p class="prodName">Rowan Sofa</p>
+              <p class="prodMeta">$1,399 · 86&quot; width</p>
+            </div>
+          </div>
+
+          <div class="prodCard">
+            <img class="prodImg" src="environment.jpg" alt="Similar sofa 3" />
+            <div class="prodBody">
+              <p class="prodName">Ellis Sofa</p>
+              <p class="prodMeta">$1,259 · 84&quot; width</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © 2026 XXX Furniture. Page content is used as study stimuli.
+    </footer>
+  </main>
+
+  <script>
+    (function(){
+      var main = document.getElementById("mainImage");
+      var buttons = document.querySelectorAll(".thumbs button");
+      buttons.forEach(function(btn){
+        btn.addEventListener("click", function(){
+          var src = btn.getAttribute("data-src");
+          if (src) { main.src = src; }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
