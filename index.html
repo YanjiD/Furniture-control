@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Sofa Product Page</title>
+  <title>Alden Sofa | Product Page</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body{
@@ -32,30 +32,36 @@
       gap:10px;
       margin-top:12px;
     }
+    .thumbs img{
+      cursor:pointer;
+    }
     h1{
       font-size:24px;
       margin:0 0 8px;
+      font-weight:600;
     }
     .price{
       font-size:20px;
       margin:10px 0;
+      font-weight:500;
     }
     .desc{
       font-size:14px;
-      line-height:1.5;
-      margin:14px 0;
+      line-height:1.6;
+      margin:16px 0;
       color:#333;
     }
     .specs{
       font-size:14px;
       line-height:1.6;
-      margin-top:12px;
+      margin-top:14px;
+      padding-left:18px;
     }
     .specs li{
       margin-bottom:6px;
     }
     .button{
-      margin-top:18px;
+      margin-top:20px;
       padding:12px;
       width:100%;
       background:#111;
@@ -77,44 +83,17 @@
     <div class="product">
 
       <div>
-        <img id="mainImage" src="environment.jpg" alt="Sofa image">
+        <!-- Main image now uses the product photo -->
+        <img id="mainImage" src="main.png" alt="Sofa product image">
 
+        <!-- Thumbnails reordered: product first, environment last -->
         <div class="thumbs">
-          <img src="environment.jpg" onclick="changeImg(this.src)">
-          <img src="main.png" onclick="changeImg(this.src)">
-          <img src="side.jpg" onclick="changeImg(this.src)">
-          <img src="fabric.png" onclick="changeImg(this.src)">
+          <img src="main.png" onclick="changeImg(this.src)" alt="Front view">
+          <img src="side.jpg" onclick="changeImg(this.src)" alt="Side view">
+          <img src="fabric.png" onclick="changeImg(this.src)" alt="Fabric detail">
+          <img src="environment.jpg" onclick="changeImg(this.src)" alt="In-room view">
         </div>
       </div>
 
       <div>
-        <h1>Landon Sofa</h1>
-        <div class="price">$1,299</div>
-
-        <p class="desc">
-          A modern upholstered sofa designed for everyday comfort.
-          Features a durable fabric finish, supportive cushions, and a
-          solid wood frame.
-        </p>
-
-        <ul class="specs">
-          <li><strong>Width:</strong> 84 inches</li>
-          <li><strong>Depth:</strong> 38 inches</li>
-          <li><strong>Height:</strong> 33 inches</li>
-          <li><strong>Upholstery:</strong> Performance fabric</li>
-          <li><strong>Frame:</strong> Solid and engineered wood</li>
-        </ul>
-
-        <button class="button">Add to Cart</button>
-      </div>
-
-    </div>
-  </div>
-
-  <script>
-    function changeImg(src){
-      document.getElementById("mainImage").src = src;
-    }
-  </script>
-</body>
-</html>
+        <h1>Alden Sofa</
